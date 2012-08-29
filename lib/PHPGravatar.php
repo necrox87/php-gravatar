@@ -4,7 +4,7 @@
  * PHPGravatar
  *
  * @author Marco Germani <marco.germani.developer@gmail.com>
- * @version 1.0.0.0 2012-08-29
+ * @version 1.0.0.1 2012-08-29
  */
 
 class PHPGravatar {
