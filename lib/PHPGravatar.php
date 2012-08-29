@@ -38,6 +38,7 @@ class PHPGravatar {
     private $rating = "g";
     private $img_tag = false;
     private $img_tag_attr = array();
+    
     private $error = array(
         'error' => false,
         'message' => "Empty message"
@@ -58,6 +59,7 @@ class PHPGravatar {
             }
 
             $this->email = trim($email);
+            
         } catch (Exception $e) {
 
             $this->setError($e->getMessage());
@@ -84,6 +86,7 @@ class PHPGravatar {
             }
 
             $this->size = $size;
+            
         } catch (Exception $e) {
 
             $this->setError($e->getMessage());
@@ -105,6 +108,7 @@ class PHPGravatar {
             }
 
             $this->imageset = $imageset;
+            
         } catch (Exception $e) {
 
             $this->setError($e->getMessage());
@@ -126,6 +130,7 @@ class PHPGravatar {
             }
 
             $this->rating = $rating;
+            
         } catch (Exception $e) {
 
             $this->setError($e->getMessage());
@@ -147,6 +152,7 @@ class PHPGravatar {
             }
 
             $this->img_tag = $is_tag;
+            
         } catch (Exception $e) {
 
             $this->setError($e->getMessage());
@@ -168,6 +174,7 @@ class PHPGravatar {
             }
 
             $this->img_tag_attr = $attr;
+            
         } catch (Exception $e) {
 
             $this->setError($e->getMessage());
@@ -196,15 +203,16 @@ class PHPGravatar {
                 if ($signup === true)
                     $tag = '<a href="'.$this->gravatar_signup.$this->email.'" target="_blank" title="Click here and signup for create your gravatar">';
                 else
-                    $tag = '<a href="#">';
+                    $tag = '';
 
                 $tag .= '<img src="' . $url . '"';
 
                 foreach ($this->img_tag_attr as $key => $val)
                     $tag .= ' ' . $key . '="' . $val . '"';
 
-                $tag .= ' /> '.$label;
-                $tag .= '</a>';
+                $tag .= ' />';
+                
+                $tag .= $signup === true ? '</a> '.$label : $label;
             }
 
             return isset($tag) ? $tag : $url;

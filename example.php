@@ -15,7 +15,7 @@ $gravatar->setImgTagAttr($tag_attr);
 
 if (!$gravatar->isError()) {
 
-    echo $gravatar->buildGravatar();
+    echo $gravatar->buildGravatar("<br /><strong>Marco Germani</strong>");
     
 } else {
 
